@@ -1,6 +1,6 @@
 import React from "react";
-import { buildGame } from "../lib/GameProps";
-import { buildGameManager, GameManager } from "../lib/GameManager";
+import { buildGame } from "../useGame/buildGame";
+import { buildGameManager, GameManager } from "./buildGameManager";
 
 const DEFAULT_GAME_PROPS = buildGame();
 const DEFAULT_GAME_MANAGER = buildGameManager(DEFAULT_GAME_PROPS);

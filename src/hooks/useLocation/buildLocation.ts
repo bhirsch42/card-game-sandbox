@@ -1,5 +1,5 @@
-import { CardProps } from "./CardProps";
-import { PlayerId } from "./PlayerProps";
+import { CardProps } from "../useCard/buildCard";
+import { PlayerId } from "../usePlayer/buildPlayer";
 
 export enum LocationTypes {
   DECK = "deck",

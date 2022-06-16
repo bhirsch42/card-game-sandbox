@@ -1,8 +1,8 @@
 import { find, propEq } from "ramda";
-import { LocationProps } from "../lib/LocationProps";
-import { PlayerId, PlayerProps } from "../lib/PlayerProps";
-import useGameManager from "./useGameManager";
-import { LocationTypes } from "./useLocation";
+import { LocationProps } from "../useLocation/buildLocation";
+import { PlayerId, PlayerProps } from "./buildPlayer";
+import useGameManager from "../useGameManager";
+import { LocationTypes } from "../useLocation";
 
 type Player = PlayerProps & {
   locations: LocationProps[];

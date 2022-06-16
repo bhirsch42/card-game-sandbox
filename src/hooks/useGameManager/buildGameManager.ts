@@ -1,5 +1,5 @@
 import { splitAt } from "ramda";
-import { GameProps } from "./GameProps";
+import { GameProps } from "../useGame/buildGame";
 
 export type Subscriber = (gameProps: GameProps) => void;
 

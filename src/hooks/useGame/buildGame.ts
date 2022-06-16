@@ -1,5 +1,5 @@
-import { LocationProps } from "./LocationProps";
-import { PlayerId, PlayerProps } from "./PlayerProps";
+import { LocationProps } from "../useLocation/buildLocation";
+import { PlayerId, PlayerProps } from "../usePlayer/buildPlayer";
 
 export type GameId = number;
 

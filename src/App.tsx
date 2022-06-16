@@ -1,10 +1,8 @@
 import React from "react";
 import "./App.css";
-import { buildGame } from "./lib/GameProps";
+import { buildGame } from "./hooks/useGame/buildGame";
 import { UseGameManagerContext } from "./hooks/useGameManager";
-import { buildGameManager } from "./lib/GameManager";
-
-const Game: React.FC = () => {};
+import { buildGameManager } from "./hooks/useGameManager/buildGameManager";
 
 function App() {
   const initGameProps = buildGame();
