@@ -1,3 +1,4 @@
+import { GameProps } from "../../hooks/useGame/buildGame";
 import { GameReducer } from "../../hooks/useGameManager/buildGameManager";
 import {
   buildPlayerProps,

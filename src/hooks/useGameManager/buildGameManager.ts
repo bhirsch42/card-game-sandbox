@@ -13,7 +13,6 @@ export type Action = {
 export type GameManager = {
   subscribe: (subscriber: Subscriber) => void;
   dispatch: (newActions: Action[]) => void;
-  state: GameProps;
 };
 
 function wait(ms: number) {
@@ -26,6 +25,10 @@ export function buildGameManager(gameProps: GameProps): GameManager {
   let actions: Action[] = [];
   let isProcessing = false;
 
+  function updateSubscribers() {
+    subscribers.forEach((subscriber) => subscriber(state));
+  }
+
   async function processActions() {
     if (isProcessing) return;
 
@@ -34,8 +37,9 @@ export function buildGameManager(gameProps: GameProps): GameManager {
     while (actions.length > 0) {
       const [[action], remainingActions] = splitAt(1, actions);
       state = action.reducer(state);
+      updateSubscribers();
       actions = remainingActions;
-      await wait(action.delay);
+      await wait(action.delay + 400);
     }
 
     isProcessing = false;
@@ -53,7 +57,6 @@ export function buildGameManager(gameProps: GameProps): GameManager {
   const gameManager: GameManager = {
     dispatch,
     subscribe,
-    state,
   };
 
   return gameManager;

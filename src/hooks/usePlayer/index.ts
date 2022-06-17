@@ -1,17 +1,15 @@
-import { find, propEq } from "ramda";
-import { LocationProps } from "../useLocation/buildLocation";
+import { LocationProps, LocationTypes } from "../useLocation/buildLocation";
 import { PlayerId, PlayerProps } from "./buildPlayer";
-import useGameManager from "../useGameManager";
-import { LocationTypes } from "../useLocation";
+import useGame from "../useGame";
 
 type Player = PlayerProps & {
   locations: LocationProps[];
-  deck: LocationProps;
-  hand: LocationProps;
+  deck: LocationProps | null;
+  hand: LocationProps | null;
 };
 
 function usePlayer(playerId: PlayerId): Player {
-  const { state } = useGameManager();
+  const state = useGame();
 
   const player = state.players.find(({ id }) => id === playerId);
 
